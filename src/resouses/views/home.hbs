@@ -1,0 +1,78 @@
+<div style="width: 100%;">
+    <div class="home-welcom" id="wc">
+        <div style="display: flex;justify-content: center;position: absolute;left:25%;right:25%;top:30px;bottom: 30px;border:5px solid blue;background-color: rgba(224, 203, 7,0.7);" >
+            <img src="\img\home.png" height="300rem" style="position: absolute;" id="hinh">
+            <h1 style="position: absolute;top: 20px;color:red" id="chao">Chào mừng mọi người đến với website</h1>
+        </div>
+    </div>
+    <p class="text-center" style="padding-top:3rem;width: 100%;font-size:35px;">
+        <strong class="nen" style="padding:15px 30px;border:3px solid black; color:black";>Thông tin về trang web</strong>
+    </p>
+    <blockquote class="text-center">
+        <p>
+            Đây là một website dùng để thống kê số tiết dạy thực hành của giảng viên khoa Điện tử đại học công nghiệp Hà Nội
+        </p>
+    </blockquote>
+    
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-10" style="border-top:5px solid black;padding-bottom:2rem;"></div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-10 nen">
+            <p dir="ltr"><p><strong>MỤC ĐÍCH</strong></p>
+                <blockquote>
+                    <p dir="ltr">Hiện tại các giảng viên khoa Điên tử đang phải thống kê số tiết dạy thực hành của mình một cách thủ công, trang web này được tạo ra để giúp các giảng viên thực hiện thao tác thống kê tiết dạy thực hành một cách dễ dàng hơn.</p></blockquote>
+            <p dir="ltr"><strong>TÍNH NĂNG</strong></p>
+                <blockquote>
+                    <p dir="ltr">- Trang web cho phép giảng viên nhập dữ liệu bằng file excel cho từng tuần (hướng dẫn cách nhập chi tiết vui lòng xem tại mục Tiện ích).</p>
+                    <p dir="ltr">- Hiển thị số tiết dạy theo tháng</p>
+                </blockquote>
+            <blockquote style="border-top:1px solid black;padding-top:1rem;">
+                <p dir="ltr">Người thực hiện: Nguyễn Xuân Hải</p>
+                <p dir="ltr">Mọi thông tin xin liên hệ: nguyenxuanhai742001@gmail.com</p>
+            </blockquote>
+        </div>
+        <div class="col">
+        </div>
+    </div>   
+</div>
+<script>
+window.onload=function(){
+  document.getElementById("trang_chu").classList.add("active");
+  
+};
+ $(window).resize(function() {
+  if ($(window).width() < 1300) {
+    document.getElementById("chao").style.display = "none";
+    document.getElementById("hinh").style.top = "-55px";
+    document.getElementById("wc").style.height = "250px";
+  }else{
+    document.getElementById("chao").style.display = "";
+    document.getElementById("hinh").style.top = "0px";
+    document.getElementById("wc").style.height = "300px";
+  }
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

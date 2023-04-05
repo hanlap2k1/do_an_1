@@ -1,0 +1,29 @@
+{
+  "name": "web_tt",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "src\\index.js",
+  "scripts": {
+    "start": "nodemon --inspect src\\index.js",
+    "watch": "node-sass --watch src\\resouses\\scss\\ --output src\\public\\css\\",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "thuc_tap"
+  ],
+  "author": "haidz",
+  "license": "ISC",
+  "dependencies": {
+    "convert-excel-to-json": "^1.7.0",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "formidable": "^2.1.1",
+    "mongoose": "^6.9.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.20"
+  }
+}

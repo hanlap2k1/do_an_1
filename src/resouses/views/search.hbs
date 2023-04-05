@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-8 nen" style="margin-top:20px">
+          <div style="padding-top:2rem;border-bottom:2px solid black;">
+            <p><strong>NHẬP THÔNG TIN VỀ GIẢNG VIÊN CẦN THỐNG KÊ</strong></p>
+          </div>
+          <div style="padding-top:2rem;padding-bottom:2rem;">
+            <form name="main-form" method="POST" action="/search">
+            <div style="position: relative;left: 10%;">
+              <p><strong>Chọn tên giảng viên</strong></p>
+            </div>
+            <div class="input-group">
+              <select class="custom-select" name="ten" id="selected">
+                <option value="none" selected disabled hidden>--Chọn giảng viên--</option>
+                {{!-- {{#each users}}
+                  <option value="{{this.Giang_vien}}">{{this.Giang_vien}}</option>
+                {{/each }} --}}
+                {{#fil users}}
+                  <option>{{this.Giang_vien}}</option>
+                {{/fil}}
+              </select>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary btn-submit" type="button"><strong>Tìm kiếm</strong></button>
+              </div>
+            </div>
+            <div style="padding-top:2rem;position: relative;left: 10%;">
+              <p><strong>Thời gian cần thống kê</strong></p>
+            </div>
+            <div class="input-group">
+              <select id="ddlYears" name="nam">
+                <option value="none" selected disabled hidden>--Năm--</option>
+              </select>
+              <select id="ddlMonths" name="thang">
+                <option value="none" selected disabled hidden>--Tháng--</option>
+              </select>
+              <div id="ddlDates" name="ngay"></div>
+            </div>
+            </form>
+          </div>
+          <div style="padding-top:2rem;border-top:2px solid black;height: 20px;">
+          </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./js/date.js"></script>
+<script>
+    document.getElementById('ddlMonths').addEventListener('change',function(){
+        var ddlDate = document.getElementById("ddlDates");
+        year = document.getElementById('ddlYears').value;
+        month = document.getElementById('ddlMonths').value;
+        while (ddlDate.hasChildNodes()) {
+          ddlDate.removeChild(ddlDate.firstChild);
+        }
+        if(year!='none' && month!='none'){
+          temp = getDatesOfDayOfWeek(year,month-1,1);
+          for(var tuan in temp){
+            geek(ddlDate,temp[tuan],temp[tuan]);
+          }
+        }
+    });
+    
+    document.addEventListener('DOMContentLoaded',function(){
+    var submitbutton = $('.btn-submit');
+    var mainform = document.forms['main-form'];
+    var ddlDate = document.getElementById("ddlDates");
+    year = document.getElementById('ddlYears').value;
+    month = document.getElementById('ddlMonths').value;
+    submitbutton.click(function(){
+          var giangvien = document.getElementById('selected').value;
+          var i=0;
+          var check = false;
+          for(var i=0;i<ddlDate.childNodes.length;i++) {
+            check = ddlDate.childNodes[i].checked || check;
+          }
+          if(year==='none'||month==='none'||giangvien==='none'||check==false){
+            alert('Vui lòng nhập đủ thông tin');
+          }else{
+            mainform.submit();
+          }
+        });
+    })
+    window.onload = function () {
+        document.getElementById("tim_kiem").classList.add("active");
+        var ddlYears = document.getElementById("ddlYears");
+        var ddlMonths = document.getElementById("ddlMonths");
+        for (var i = 2020; i <= 2100; i++) {
+            var option = document.createElement("OPTION");
+            option.innerHTML = i;
+            option.value = i;           
+            ddlYears.appendChild(option);
+        }
+        for (var i = 1; i <= 12; i++) {
+            var option = document.createElement("OPTION");
+            option.innerHTML = i;
+            option.value = i;
+            ddlMonths.appendChild(option);
+        }
+    };
+
+
+</script>

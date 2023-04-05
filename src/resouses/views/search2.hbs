@@ -1,0 +1,284 @@
+<div class="show1">
+    {{#fil users}}
+      <h1>Thông tin về tiết dạy của giảng viên {{this.Giang_vien}} năm {{this.Nam}} </h1>
+    {{/fil}}
+      <h1>tháng {{thang}}</h1>
+</div>
+{{!-- <div class="show1">
+    <h1>Tổng số tiết dạy trong khoảng thời gian được chọn: {{thuc_giang}} hệ số quy đổi là {{heso}}</h1>
+    {{#each users}}
+    <h1>{{this}} tiết</h1>
+    {{/each}}
+</div> --}}
+<table class="table mt-4 table-bordered table-hover table-sm" style="width: 60%;">
+  <thead>
+    <tr>
+      <td>Tổng số tiết giảng dạy</td>
+      <td>Hệ số quy đổi</td>
+      <td>Thực giảng</td>
+      <td>Hệ số TĐ ĐT</td>
+    </tr>
+  </thead>
+  <tbody id="table_body_fil">
+    <tr>
+      <td>{{thuc_giang}}</td>
+      <td>{{heso}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <div class="show1">
+    <select class ="ten_hoc_phan" id="tenhocphan">
+      <option value="none" selected disabled hidden>--Tên học phần--</option>
+      {{#fil users}}
+      <option>{{this.Hocphan_Monhoc}}</option>
+      {{/fil }}
+    </select>
+  </div>
+  <div class="show1">
+  <select class ="ma_lop" id="malop">
+      <option value="none" selected disabled hidden>--Mã lớp--</option>
+    </select>
+  </div>
+  <div class="show1">
+    <select class ="ten_nhom" id="tennhom">
+      <option value="none" selected disabled hidden>--Tên nhóm--</option>
+    </select>
+  </div>
+  
+  <div class="show1">
+    <button class="btn btn-outline-dark" onclick="filter();"><span data-feather="filter"></span></button>
+  </div>
+</div>
+<table class="table mt-4 table-bordered table-hover table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Tuần</th>
+      <th scope="col">Bộ môn</th>
+      <th scope="col">Hệ</th>
+      <th scope="col">Khóa</th>
+      <th scope="col">Mã lớp</th>
+      <th scope="col">Tên nhóm</th>
+      <th scope="col">Tổng số nhóm</th>
+      <th scope="col">Số lượng HS/SV</th>
+      <th scope="col">Học phần/ Môn học</th>
+      <th colspan="2">Thứ 2</th>
+      <th colspan="2">Thứ 3</th>
+      <th colspan="2">Thứ 4</th>
+      <th colspan="2">Thứ 5</th>
+      <th colspan="2">Thứ 6</th>
+      <th colspan="2">Thứ 7</th>
+      <th colspan="2">Chủ nhật</th>
+    </tr>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+    </tr>
+  </thead>
+  <tbody id="table_body">
+    {{#each users}}
+    <tr>
+      <td>{{this.Ngay}}</td>
+      <td>{{this.Bo_mon}}</td>
+      <td>{{this.He}}</td>
+      <td>{{this.Khoa}}</td>
+      <td>{{this.Ma_lop}}</td>
+      <td>{{this.Ten_nhom}}</td>
+      <td>{{this.Tong_so_nhom}}</td>
+      <td>{{this.SL_HS_SV}}</td>
+      <td>{{this.Hocphan_Monhoc}}</td>
+      <td>{{this.Ca_thu_2}}</td>
+      <td>{{this.Phong_thu_2}}</td>
+      <td>{{this.Ca_thu_3}}</td>
+      <td>{{this.Phong_thu_3}}</td>
+      <td>{{this.Ca_thu_4}}</td>
+      <td>{{this.Phong_thu_4}}</td>
+      <td>{{this.Ca_thu_5}}</td>
+      <td>{{this.Phong_thu_5}}</td>
+      <td>{{this.Ca_thu_6}}</td>
+      <td>{{this.Phong_thu_6}}</td>
+      <td>{{this.Ca_thu_7}}</td>
+      <td>{{this.Phong_thu_7}}</td>
+      <td>{{this.Ca_chu_nhat}}</td>
+      <td>{{this.Phong_chu_nhat}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<table>
+  <tbody id="tiet">
+    {{#each mang}}
+    <tr>
+      <td style="display: none;">{{this}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<div class="show2">
+   <a href="/search"> Quay lại</a>
+   <i ></i>
+</div>
+
+<script>
+document.getElementById("tenhocphan").addEventListener("change",function(){
+  var malop = document.getElementById("malop");
+  var tennhom = document.getElementById("tennhom");
+  var tenhocphan = document.getElementById("tenhocphan");
+  var tbody = document.getElementById("table_body");
+  var tr = tbody.getElementsByTagName("tr");
+  var do_dai_malop = malop.length;
+  for(var i = 0; i < do_dai_malop; i++){
+    malop.remove(1);
+  }
+  var mang_malop = new Array;
+  for (var i = 0; i < tr.length; i++) {
+    var td = tr[i].getElementsByTagName("td")[8];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (tenhocphan.options[tenhocphan.selectedIndex].text===txtValue) {
+        var td2 = tr[i].getElementsByTagName("td")[4];
+        if(td2){
+          var td_malop = td2.textContent || td2.innerText;
+          if(!mang_malop.includes(td_malop)){
+            mang_malop.push(td_malop);
+          }
+        }
+      }
+    }
+  }
+  for(var i in mang_malop){
+    var option = document.createElement("option");
+    option.text = mang_malop[i];
+    malop.add(option);
+  }
+});
+document.getElementById("malop").addEventListener("change",function(){
+  var malop = document.getElementById("malop");
+  var tennhom = document.getElementById("tennhom");
+  var tenhocphan = document.getElementById("tenhocphan");
+  var tbody = document.getElementById("table_body");
+  var tr = tbody.getElementsByTagName("tr");
+  var do_dai_tennhom = tennhom.length
+  for(var i = 0; i <= do_dai_tennhom; i++){
+    tennhom.remove(1);
+  }
+  var mang_tennhom = new Array;
+  for (var i = 0; i < tr.length; i++) {
+    var td = tr[i].getElementsByTagName("td")[8];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      var td2 = tr[i].getElementsByTagName("td")[4];
+      txtValue2 = td2.textContent || td2.innerText;
+      if (tenhocphan.options[tenhocphan.selectedIndex].text===txtValue && malop.options[malop.selectedIndex].text===txtValue2){
+        var td3 = tr[i].getElementsByTagName("td")[5];
+        var td_tennhom = td3.textContent || td3.innerText;
+        if(!mang_tennhom.includes(td_tennhom)){
+          mang_tennhom.push(td_tennhom);
+        }
+      }
+    }
+  }
+  //alert(mang_tennhom);
+  for(var i in mang_tennhom){
+    var option = document.createElement("option");
+    option.text = mang_tennhom[i];
+    tennhom.add(option);
+  }
+});
+function filter() {
+  //alert(sel.options[sel.selectedIndex].text);
+  var malop = document.getElementById("malop");
+  var tennhom = document.getElementById("tennhom");
+  var tenhocphan = document.getElementById("tenhocphan");
+  var group = new Array;
+  group[0] = malop;
+  group[1] = tennhom;
+  group[2] = tenhocphan;
+  var number=0;
+  var tbody = document.getElementById("table_body");
+  var tr = tbody.getElementsByTagName("tr");
+  for (var i = 0; i < tr.length; i++) {
+    tr[i].style.display = "";
+  }
+  for(var gr in group){
+    if(group[gr].options[group[gr].selectedIndex].value == "none")
+    {
+      continue;
+    }
+    switch(group[gr].className) {
+      case "ma_lop":
+        number=4;
+      break;
+      case "ten_nhom":
+        number=5;
+      break;
+      case "ten_hoc_phan":
+        number=8;
+      break;
+    }
+    //console.log(typeof(group[gr].options[group[gr].selectedIndex].value));
+    for (var i = 0; i < tr.length; i++) {
+      var td = tr[i].getElementsByTagName("td")[number];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (group[gr].options[group[gr].selectedIndex].text===txtValue) {
+          //tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  var tiet=0;
+  var tbody_fil = document.getElementById("table_body_fil");
+  var tr_fil = tbody_fil.getElementsByTagName("tr");
+  var tbody_tiet = document.getElementById("tiet");
+  var tr_tiet = tbody_tiet.getElementsByTagName("tr");
+  for (var i = 0; i < tr.length; i++) {
+    if(tr[i].style.display == ""){
+      var td_tiet = tr_tiet[i].getElementsByTagName("td")[0];
+      tiet = tiet + Number(td_tiet.innerText);
+    }
+  }
+  var t_d_fil = tr_fil[0].getElementsByTagName("td")[2];
+  var t_d_fil2 = tr_fil[0].getElementsByTagName("td")[3];
+  t_d_fil.innerText = tiet;
+  t_d_fil2.innerText = tiet*6/10;
+}
+window.onload=function(){
+  feather.replace();
+};
+</script>
+<script src="https://unpkg.com/feather-icons"></script>
+
+
+
+
+
+
+
+
+
