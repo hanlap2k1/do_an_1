@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-8 nen" style="margin-top:20px">
+          <div style="padding-top:2rem;border-bottom:2px solid black;">
+            <p><strong>NHẬP THÔNG TIN THỰC HÀNH</strong></p>
+          </div>
+          <div style="padding-top:2rem;padding-bottom:2rem;">
+            <form method="POST" enctype="multipart/form-data">
+              <div style="position: relative;left: 10%;">
+                <p><strong>Nhập tuần muốn nhập</strong></p>
+              </div>
+              <div class="input-group">
+                <input id="date-input" type="date" name="date" multiple="multiple">
+              </div>
+              <div style="padding-top:2rem;position: relative;left: 10%;">
+                <p><strong>Nhập file</strong></p>
+              </div>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile04" name="excelfile" required>
+                  <label class="custom-file-label" for="inputGroupFile04">Chọn file cần nhập</label>
+                </div>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit" id="btn">Tải lên</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div style="padding-top:2rem;border-top:2px solid black;height: 20px;">
+          </div>
+          <div id="fp" style="padding-bottom: 15px;"></div>
+          <div>
+              <p id="notification-message">Tải lên thành công</p>
+          </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+
+
+<script>
+window.onload=function(){
+  document.getElementById("nhap_dl").classList.add("active");
+  if(document.cookie != "token="){
+        document.getElementById('login').innerHTML = '<strong>Đăng xuất</strong>';
+    }
+};
+var date_input=document.getElementById("date-input");
+date_input.addEventListener('change',function(){
+    var date_1 = date_input.value;
+    var ngay = Number(date_1.slice(8,10));
+    var thang = Number(date_1.slice(5,7));
+    var nam = Number(date_1.slice(0,4));
+    var date_2 = new Date(nam, thang-1, ngay);
+    if(date_2.getDay() != 1){
+        alert("Ngày vừa chọn không phải thứ Hai, vui lòng nhập lại!!!");
+        date_input.value = null;
+    }
+});
+document.getElementById('inputGroupFile04').addEventListener('change', function(e) {
+  if (e.target.files[0]) {
+    if(e.target.files[0].name.search(".xlsx") != -1){
+      document.getElementById('fp').innerHTML = 'Đã thêm '+ e.target.files[0].name;
+    }else{
+      alert("Vui lòng nhập đúng file có định dạng .xlsx");
+      document.getElementById('fp').innerHTML = null;
+    }
+      
+  }
+});
+const form = document.querySelector('form');
+const notification = document.querySelector('#notification-message');
+form.addEventListener('submit', (e) => {
+  if(date_input.value !== ""){
+    e.preventDefault();
+    notification.classList.add('show');
+    setTimeout(() => form.submit(), 2000);
+  }
+  else{
+    alert("Vui lòng nhập ngày!!!");
+    e.preventDefault();
+  }
+});
+</script>

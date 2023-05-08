@@ -1,0 +1,31 @@
+<div id="wrapper">
+    <form id="myForm" action="/login" method="POST">
+        <div id="anh">
+            <img src="\img\logo-haui-size.png" width="90" height="90" class="d-inline-block align-top" alt="" >
+        </div>
+        <h1 class="form-heading">Trường Đại học Công nghiệp Hà Nội<br>
+            <div style="font-size: 16px;padding-top:10px">Khoa Điện tử</div>
+        </h1>
+        <div class="form-group">
+            <input type="text" class="form-input"  name="username" placeholder="Tên đăng nhập"><br>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-input" name="password" placeholder="Mật khẩu"><br>
+        </div>
+        <button type="button" onclick="submitfunction()" class="form-submit">Đăng nhập</button>
+    </form>
+</div>
+<script>
+    function submitfunction(){
+        document.getElementById("myForm").submit();
+    }
+    window.onload=function(){
+        document.getElementById("login").classList.add("active");
+        var mess = "{{./[mess]}}";
+        if(mess != ""){
+            alert(mess);
+        }
+        document.cookie ="token=;path=/";
+        document.getElementById("nav").style.display='none';
+    };
+</script>

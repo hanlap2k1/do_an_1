@@ -4,7 +4,7 @@ import Users from "../models/Users.js";
 export function writetodb(fields){
     const result = excelToJson({
         source: fs.readFileSync("src/resouses/excel/thang1.xlsx"),
-        range:'A10:X200',
+        range:'A13:X200',
         columnToKey: {
             A: "tt",
             B: "Bo_mon",

@@ -3,12 +3,13 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import morgan from 'morgan';
 import { engine } from 'express-handlebars';
+import cookieParser from 'cookie-parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = 3000;
+const port = 80;
 
 import {route} from './routes/index.js';
 
@@ -36,13 +37,16 @@ app.engine('hbs', engine({
             }
           }
           return ret;
-        }
+        },
+      sum:(a,b)=>{
+        return a + b;
+      }
         
   }
 } ));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resouses','views'));
-
+app.use(cookieParser())
 route(app);
 
 

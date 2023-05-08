@@ -1,0 +1,36 @@
+
+<table class="table mt-4 table-bordered table-hover table-sm table-striped">
+    <thead>
+        <th>STT</th>
+        <th>Mã Lớp</th>
+        <th>Hệ</th>
+        <th>Khóa</th>
+        <th>Tên học phần</th>
+        <th>Nhóm thực hành</th>
+        {{#each Ngay}}
+            <th>{{this}}</th>
+        {{/each}}
+    </thead>
+    <tbody>
+        {{#each thuc_hanh}}
+            <tr>
+                <td>{{sum @index 1}}</td>
+                <td>{{this.Ma_lop}}</td>
+                <td>{{this.He}}</td>
+                <td>{{this.Khoa}}</td>
+                <td>{{this.Ten_mon_hoc}}</td>
+                <td>{{this.Nhom_thuc_hanh}}</td>
+                {{#each this.Tiet}}
+                    <th>{{this}}</th>
+                {{/each}}
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script>
+    window.onload=function(){
+        if(document.cookie != "token="){
+            document.getElementById('login').innerHTML = '<strong>Đăng xuất</strong>';
+        }
+    }
+</script>

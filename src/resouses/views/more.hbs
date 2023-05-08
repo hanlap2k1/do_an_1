@@ -35,5 +35,8 @@
 <script>
 window.onload=function(){
   document.getElementById("tien_ich").classList.add("active");
+  if(document.cookie != "token="){
+        document.getElementById('login').innerHTML = '<strong>Đăng xuất</strong>';
+    }
 };
 </script>

@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-8 nen" style="margin-top:20px">
+          <div style="padding-top:2rem;border-bottom:2px solid black;">
+            <p><strong>NHẬP THÔNG TIN LÝ THUYẾT</strong></p>
+          </div>
+          <div style="padding-top:2rem;padding-bottom:2rem;">
+            <form method="POST" enctype="multipart/form-data">
+              <div style="padding-top:2rem;position: relative;left: 10%;">
+                <p><strong>Nhập file</strong></p>
+              </div>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile04" name="excelfile" required>
+                  <label class="custom-file-label" for="inputGroupFile04">Chọn file cần nhập</label>
+                </div>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit" id="btn">Tải lên</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div style="padding-top:2rem;border-top:2px solid black;height: 20px;">
+          </div>
+          <div id="fp" style="padding-bottom: 15px;"></div>
+          <div>
+              <p id="notification-message">Tải lên thành công</p>
+          </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+
+
+<script>
+window.onload=function(){
+  document.getElementById("nhap_dl").classList.add("active");
+  if(document.cookie != "token="){
+        document.getElementById('login').innerHTML = '<strong>Đăng xuất</strong>';
+    }
+};
+document.getElementById('inputGroupFile04').addEventListener('change', function(e) {
+  if (e.target.files[0]) {
+    if(e.target.files[0].name.search(".xlsx") != -1){
+      document.getElementById('fp').innerHTML = 'Đã thêm '+ e.target.files[0].name;
+    }else{
+      alert("Vui lòng nhập đúng file có định dạng .xlsx");
+      document.getElementById('fp').innerHTML = null;
+    }
+      
+  }
+});
+const form = document.querySelector('form');
+const notification = document.querySelector('#notification-message');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  notification.classList.add('show');
+  setTimeout(() => form.submit(), 2000);
+});
+</script>

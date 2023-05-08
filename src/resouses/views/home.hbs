@@ -46,7 +46,19 @@
 </div>
 <script>
 window.onload=function(){
-  document.getElementById("trang_chu").classList.add("active");
+    document.getElementById("trang_chu").classList.add("active");
+    var token = "{{./[token]}}";
+    if(token != ""){
+        document.cookie = "token =" + token;
+    }
+    if(document.cookie != "token="){
+        document.getElementById('login').innerHTML = '<strong>Đăng xuất</strong>';
+    }   
+    var mess = "{{./[mess]}}";
+    if(mess != ""){
+        alert(mess);
+    }
+    
   
 };
  $(window).resize(function() {
