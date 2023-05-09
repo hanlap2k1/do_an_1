@@ -29,4 +29,10 @@ export default class SiteController{
             res.status(500).json("Lỗi server");
         });
     }
+    infor(req,res,next){
+        res.render('infor');
+    }
+    infor2(req,res,next){
+        res.render('infor2');
+    }
 };

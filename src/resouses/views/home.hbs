@@ -1,8 +1,9 @@
 <div style="width: 100%;">
     <div class="home-welcom" id="wc">
-        <div style="display: flex;justify-content: center;position: absolute;left:25%;right:25%;top:30px;bottom: 30px;border:5px solid blue;background-color: rgba(224, 203, 7,0.7);" >
+        <div style="display: flex;justify-content: center;position: absolute;left:20%;right:20%;top:30px;bottom: 30px;border:5px solid blue;background-color: rgba(224, 203, 7,0.7);" >
             <img src="\img\home.png" height="300rem" style="position: absolute;" id="hinh">
-            <h1 style="position: absolute;top: 20px;color:red" id="chao">Chào mừng mọi người đến với website</h1>
+            <h1 style="position: absolute;top: 20px;color:red;font-size:30px" id="chao">
+                Chào mừng mọi người đến với website hỗ trợ giảng dạy</h1>
         </div>
     </div>
     <p class="text-center" style="padding-top:3rem;width: 100%;font-size:35px;">
@@ -51,15 +52,13 @@ window.onload=function(){
     if(token != ""){
         document.cookie = "token =" + token;
     }
-    if(document.cookie != "token="){
+    if(document.cookie != "token="&&document.cookie != ""){
         document.getElementById('login').innerHTML = '<strong>Đăng xuất</strong>';
     }   
     var mess = "{{./[mess]}}";
     if(mess != ""){
         alert(mess);
     }
-    
-  
 };
  $(window).resize(function() {
   if ($(window).width() < 1300) {

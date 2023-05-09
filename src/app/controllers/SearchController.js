@@ -2,15 +2,19 @@ import Users from "../models/Users.js"
 import User2s from "../models/User2s.js"
 import mg from "../../util/mongoose.js"
 import tinh from "../../util/tinhheso.js"
+
+
 export default class SearchController{
     search_home(req,res,next){
+        //res.render('search/search', { dulieuhome: global.dulieuhome });
         User2s.find()
             .then(users => {
-                //teachers = teachers.map(teacher => teacher.toObject());
                 users = mg.mutipleMongooseToOject(users);
                 res.render('search/search', { users });
+                
             })
             .catch(next);
+        
     }
     searchlessons(req,res,next){
         User2s.find({Giangvien: req.body.ten, Ngay: { $in: req.body.check }})
