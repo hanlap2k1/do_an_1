@@ -8,7 +8,7 @@
         <th>Tên học phần</th>
         <th>Nhóm thực hành</th>
         {{#each Ngay}}
-            <th>{{this}}</th>
+            <th>{{viet this}}</th>
         {{/each}}
     </thead>
     <tbody>
@@ -26,6 +26,89 @@
             </tr>
         {{/each}}
     </tbody>
+</table>
+<table class="table mt-4 table-bordered table-hover table-sm">
+  <thead>
+    <tr>
+        <th scope="col">STT</th>
+      <th scope="col">Tuần</th>
+      <th scope="col">Bộ môn</th>
+      <th scope="col">Hệ</th>
+      <th scope="col">Khóa</th>
+      <th scope="col">Mã lớp</th>
+      <th scope="col">Tên nhóm</th>
+      <th scope="col">Tổng số nhóm</th>
+      <th scope="col">Số lượng HS/SV</th>
+      <th scope="col">Học phần/ Môn học</th>
+      <th colspan="2">Thứ 2</th>
+      <th colspan="2">Thứ 3</th>
+      <th colspan="2">Thứ 4</th>
+      <th colspan="2">Thứ 5</th>
+      <th colspan="2">Thứ 6</th>
+      <th colspan="2">Thứ 7</th>
+      <th colspan="2">Chủ nhật</th>
+      <th scope="col">Ghi chú</th>
+      <th scope="col">Tổng số tiết</th>
+    </tr>
+    <tr>
+        <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+      <th scope="col">Ca</th>
+      <th scope="col">Phòng</th>
+    </tr>
+  </thead>
+  <tbody id="table_body">
+    {{#each user}}
+    <tr>
+      <td>{{sum @index 1}}</td>
+      <td>{{viet this.Ngay}}</td>
+      <td>{{this.Bo_mon}}</td>
+      <td>{{this.He}}</td>
+      <td>{{this.Khoa}}</td>
+      <td>{{this.Ma_lop}}</td>
+      <td>{{this.Ten_nhom}}</td>
+      <td>{{this.Tong_so_nhom}}</td>
+      <td>{{this.SL_HS_SV}}</td>
+      <td>{{this.Hocphan_Monhoc}}</td>
+      <td>{{this.Ca_thu_2}}</td>
+      <td>{{this.Phong_thu_2}}</td>
+      <td>{{this.Ca_thu_3}}</td>
+      <td>{{this.Phong_thu_3}}</td>
+      <td>{{this.Ca_thu_4}}</td>
+      <td>{{this.Phong_thu_4}}</td>
+      <td>{{this.Ca_thu_5}}</td>
+      <td>{{this.Phong_thu_5}}</td>
+      <td>{{this.Ca_thu_6}}</td>
+      <td>{{this.Phong_thu_6}}</td>
+      <td>{{this.Ca_thu_7}}</td>
+      <td>{{this.Phong_thu_7}}</td>
+      <td>{{this.Ca_chu_nhat}}</td>
+      <td>{{this.Phong_chu_nhat}}</td>
+      <td>{{this.Ghi_chu}}</td>
+      <td>{{this.Tong_so_tiet}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
 </table>
 <script>
     window.onload=function(){

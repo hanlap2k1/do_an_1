@@ -90,8 +90,13 @@ export default class SearchController{
                     uniqueLT2,
                     (a, b) => (a[0] === b[0]) & (a[1] === b[1]) & (a[2] === b[2])
                 );
+                console.log(req.body.check);
+                if(typeof(req.body.check) == "string"){
+                    req.body.check = [req.body.check];
+                }
                 for ( var y=0; y < uniqueMembers2_2.length; y++ ) {
                     var mang_2_chieu_col = new Array();
+                    
                     for ( var x=0; x< req.body.check.length; x++ ) { 
                         mang_2_chieu_col[x]=0;
                     }
@@ -104,8 +109,13 @@ export default class SearchController{
                     for(var j in user){
                         if((uniqueMembers2[i][0]===user[j].He) && (uniqueMembers2[i][1]===user[j].Ma_lop 
                             && (uniqueMembers2[i][2]===user[j].Ten_nhom) && (uniqueMembers2[i][3]===user[j].Ngay))){
-                                tiet = tinh.tinhhesoTH(user[j]);
-                                tongtiet_LT += tinh.demtiet(user[j],tiet);
+                                if(user[j].Tong_so_tiet == null){
+                                    tiet = tinh.tinhhesoTH(user[j]);
+                                    tongtiet_LT += tinh.demtiet(user[j],tiet);
+                                }else{
+                                    tongtiet_LT += Number(user[j].Tong_so_tiet);
+                                }
+                                
                             } 
                     } 
                     mang_tiet[i] = tongtiet_LT;
@@ -142,6 +152,7 @@ export default class SearchController{
                 res.render('search/search3', {
                     thuc_hanh,
                     Ngay:req.body.check,
+                    user
                 }
                 );
             })

@@ -11,7 +11,7 @@ export function writetodb2(){
     var ds_ngay  = new Array();
     var mang_sotiet  = new Array();
     wb.xlsx.readFile(fileName).then(() => {
-        const ws = wb.getWorksheet('Du lieu');
+        const ws = wb.getWorksheet('KHOA DIEN TU');
         for(var i = 9; i <= 2000; i++){
             var dulieu_col = new Array();
             for(var j = 2; j <= 18 ; j ++ ){
@@ -94,7 +94,7 @@ export function writetodb2(){
                 })
             .catch(Error);
     }).catch(err => {
-        console.log(err.message);
+        res.status(500);
     });
 }
 

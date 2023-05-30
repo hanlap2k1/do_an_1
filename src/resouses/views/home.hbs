@@ -1,19 +1,22 @@
 <div style="width: 100%;">
     <div class="home-welcom" id="wc">
-        <div style="display: flex;justify-content: center;position: absolute;left:20%;right:20%;top:30px;bottom: 30px;border:5px solid blue;background-color: rgba(224, 203, 7,0.7);" >
-            <img src="\img\home.png" height="300rem" style="position: absolute;" id="hinh">
-            <h1 style="position: absolute;top: 20px;color:red;font-size:30px" id="chao">
-                Chào mừng mọi người đến với website hỗ trợ giảng dạy</h1>
+        <div style="display: flex;justify-content: center;position: absolute;left:10%;right:10%;top:30px;bottom: 10px;border:5px solid blue;background-color: rgba(255, 255, 255, 0.5);font-family: 'Times New Roman', Times, serif;" >
+            <img src="\img\home.png" height="300rem" style="position: absolute;padding-top:40px" id="hinh">
+            <h1 style="position: absolute;top: 20px;color:rgb(0, 0, 0);font-size:31px;text-align:center" id="chao">
+                <strong>
+                Chào mừng mọi người đến với website phục vụ giảng dạy và nghiên cứu cho <br> Khoa Điện tử - Trường Đại học Công nghiệp Hà Nội
+                </strong>
+                </h1>
         </div>
     </div>
-    <p class="text-center" style="padding-top:3rem;width: 100%;font-size:35px;">
+    {{!-- <p class="text-center" style="padding-top:3rem;width: 100%;font-size:35px;">
         <strong class="nen" style="padding:15px 30px;border:3px solid black; color:black";>Thông tin về trang web</strong>
     </p>
     <blockquote class="text-center">
         <p>
             Đây là một website dùng để thống kê số lượng giảng dạy của giảng viên khoa Điện tử đại học công nghiệp Hà Nội
         </p>
-    </blockquote>
+    </blockquote> --}}
     
 </div>
 <div class="container">
@@ -28,27 +31,28 @@
         <div class="col">
         </div>
         <div class="col-10 nen">
-            <p dir="ltr"><p><strong>MỤC ĐÍCH CHÍNH</strong></p>
+            <p dir="ltr"><p><strong>MỤC TIÊU</strong></p>
                 <blockquote>
-                    <p dir="ltr">Hiện tại các giảng viên khoa Điên tử đang phải thống kê số lượng giảng dạy của mình một cách thủ công, trang web này được tạo ra để giúp các giảng viên thực hiện thao tác thống kê số lượng giảng một cách dễ dàng hơn.</p></blockquote>
-            <p dir="ltr"><strong>TÍNH NĂNG</strong></p>
+                    <p dir="ltr">Website hỗ trợ giảng viên thống kê khối lượng giảng dạy và cung cấp thông tin về nhóm và hướng nghiên cứu của Khoa Điện tử - Trường Đại học Công nghiệp Hà Nội.</p></blockquote>
+            <p dir="ltr"><strong>CHỨC NĂNG</strong></p>
                 <blockquote>
-                    <p dir="ltr">- Giảng dạy</p>
+                    <p dir="ltr">- Thống kê giảng dạy và hướng dẫn thực tập tốt nghiệp, đồ án tốt nghiệp</p>
                     <blockquote>
-                        <p dir="ltr" style="padding-left: 10px;">+ Xem lịch thông tin thực hành từng tuần.</p>
-                        <p dir="ltr" style="padding-left: 10px;">+ Thống kê số tiết dạy Thực hành/Lý thuyết theo tháng</p>
-                        <p dir="ltr" style="padding-left: 10px;">+ Thống kê số giờ giảng dạy và hệ số TĐ ĐT theo tháng</p>
+                        <p dir="ltr" style="padding-left: 10px;">+ Xem thông tin lịch thực hành theo tuần.</p>
+                        <p dir="ltr" style="padding-left: 10px;">+ Thống kê số tiết dạy Thực hành/Lý thuyết theo tháng.</p>
+                        <p dir="ltr" style="padding-left: 10px;">+ Thống kê số giờ giảng dạy và hệ số TĐ ĐT theo tháng.</p>
                     </blockquote>
-                    <p dir="ltr">- Thông tin nghiên cứu</p>
+                    <p dir="ltr">- Cung cấp thông tin nghiên cứu khoa học</p>
                     <blockquote>
-                        <p dir="ltr" style="padding-left: 10px;">+ Những sinh viên yêu thích nghiên cứu khoa học có thể xem các nghiên cứu và xin gia nhập vào các nghiên cứu của khoa Điện Tử.</p>
-                        <p dir="ltr" style="padding-left: 10px;">+ Thông tin về các Giảng viên hiện đang làm các nhóm nghiên cứu khoa học.</p>
-                        <p dir="ltr" style="padding-left: 10px;">+ Các đề tài nghiên cứu khoa học đang được thực hiện.</p>
+                        <p dir="ltr" style="padding-left: 10px;">+ Giúp sinh viên nắm bắt được thông tin nghiên cứu khoa học và liên hệ để tham gia các nhóm nghiên cứu của Khoa.</p>
+                        <p dir="ltr" style="padding-left: 10px;">+ Hiển thị thông tin về các giảng viên và sinh viên đang tham gia nghiên cứu tại Khoa.</p>
+                        {{!-- <p dir="ltr" style="padding-left: 10px;">+ Các đề tài nghiên cứu khoa học đang được thực hiện.</p> --}}
                     </blockquote>
                 </blockquote>
             <blockquote style="border-top:1px solid black;padding-top:1rem;">
-                <p dir="ltr">Người thực hiện: Nguyễn Xuân Hải</p>
-                <p dir="ltr">Mọi thông tin xin liên hệ: nguyenxuanhai742001@gmail.com</p>
+                <p dir="ltr">Nhóm thực hiện: Nguyễn Xuân Hải-2019605026, Nguyễn Trọng Bình-2019600224, Đỗ Đức Anh-2019605952</p>
+                <p dir="ltr">Dưới sự hướng dẫn của: ThS. Nguyễn Văn Cường - Khoa Điện tử</p>
+                <p dir="ltr">Thông tin chi tiết xin liên hệ: nguyenxuanhai742001@gmail.com</p>
             </blockquote>
         </div>
         <div class="col">

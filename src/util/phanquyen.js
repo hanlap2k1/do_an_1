@@ -13,10 +13,10 @@ var checkLogin = (req,res,next)=>{
             })
             .catch(err=>{
     
-            });;
+            });
         } catch (error) {
             var mess = "Vui lòng đăng nhập";
-            res.render('login',{mess})
+            res.render('login',{mess});
         }
     }
 var checkAdmin = (req,res,next)=>{
@@ -24,9 +24,16 @@ var checkAdmin = (req,res,next)=>{
     if(role == "admin"){
         next()
     }else{
-        var mess = "Bạn không được cấp quyền";
+        var mess = "Không được cấp quyền";
         res.render('home', {mess});
     }
-
 }
-export default {checkLogin,checkAdmin};
+var checkName = (req,res,next)=>{
+    if(req.data.name == req.body.ten || req.data.name == 'admin'){
+        next()
+    }else{
+        var mess = "Không được cấp quyền";
+        res.render('home', {mess});
+    }
+}
+export default {checkLogin,checkAdmin,checkName};

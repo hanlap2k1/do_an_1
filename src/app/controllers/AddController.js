@@ -29,6 +29,7 @@ export default class AddController{
                         writetodb(fields);
                         console.log('File uploaded and moved!');
                         res.render('add/thuchanh');
+                        
                         });
                 })
                 .catch(next);

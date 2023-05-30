@@ -76,6 +76,31 @@ export default {
         }
         return tiet;
     },
+    demtoi:function(user){
+        var dem_toi=0;
+        if(user.Phong_thu_2 !== null &&user.Ca_thu_2 !== "3"){
+            dem_toi++;
+        }
+        if(user.Phong_thu_3 !== null &&user.Ca_thu_3 !== "3"){
+            dem_toi++;
+        }
+        if(user.Phong_thu_4 !== null &&user.Ca_thu_4 !== "3"){
+            dem_toi++;
+        }
+        if(user.Phong_thu_5 !== null &&user.Ca_thu_5 !== "3"){
+            dem_toi++;
+        }
+        if(user.Phong_thu_6 !== null &&user.Ca_thu_6 !== "3"){
+            dem_toi++;
+        }
+        if(user.Phong_thu_7 !== null &&user.Ca_thu_7 !== "3"){
+            dem_toi++;
+        }
+        if(user.Phong_chu_nhat !== null &&user.Ca_chu_nhat !== "3"){
+            dem_toi++;
+        }
+        return dem_toi;
+    },
     unique:function(a,fn){
         if (a.length === 0 || a.length === 1) {
             return a;

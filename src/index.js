@@ -39,8 +39,12 @@ app.engine('hbs', engine({
         },
       sum:(a,b)=>{
         return a + b;
+      },
+      viet:(a)=>{
+        var ngay  = a.split('-');
+        a = ngay[2] + '-' + ngay[1] + '-' + ngay[0];
+        return a;
       }
-        
   }
 } ));
 app.set('view engine', 'hbs');

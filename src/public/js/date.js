@@ -16,7 +16,11 @@ function setupform(date){
     dates = nam + '-' + thang + '-' + ngay;
   }
   return dates;
-   
+}
+function ngayviet(name){
+  var ngay  = name.split('-');
+  name = ngay[2] + '-' + ngay[1] + '-' + ngay[0];
+  return name;
 }
 function getDatesOfDayOfWeek (year, month, dayOfWeek) {
   const initialDate = new Date(year, month, 1);
@@ -55,7 +59,7 @@ function geek(myDiv,name,value) {
    
   // appending the created text to
   // the created label tag
-  label.appendChild(document.createTextNode(name));
+  label.appendChild(document.createTextNode(ngayviet(name)));
   // appending the checkbox
   // and label to div
   myDiv.appendChild(checkbox);

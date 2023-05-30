@@ -20,8 +20,8 @@ export default class SiteController{
                 var token = jwt.sign({_id:data._id},'mk');
                 res.render('home',{token})
             }else{
-                var token = "Đăng nhập thất bại"
-                res.render('login',{token});
+                var mess = "Đăng nhập thất bại"
+                res.render('login',{mess});
             }
             
         })
